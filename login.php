@@ -51,8 +51,7 @@ try {
         }
     }
     
-    // Buscar en tabla usuarios_clientes (pacientes)
-    // IMPORTANTE: Devolver p.id_pacientes, NO uc.id_paciente
+
     $sql = "SELECT uc.*, r.nombre AS rol_nombre, 
             p.nombre AS paciente_nombre, 
             p.id_pacientes AS id_paciente_real
@@ -71,7 +70,7 @@ try {
             echo json_encode([
                 "status" => "ok",
                 "tipo" => "paciente",
-                "id" => $row["id_paciente_real"], // ← ESTE ES EL CAMBIO IMPORTANTE
+                "id" => $row["id_paciente_real"],
                 "nombre" => $row["paciente_nombre"],
                 "rol" => $row["id_rol"],
                 "token" => bin2hex(random_bytes(16))
@@ -90,4 +89,5 @@ try {
 }
 
 ob_end_flush();
+
 ?>
