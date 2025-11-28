@@ -23,7 +23,7 @@ try {
 
     $id = intval($_GET["id"]);
 
-    // Consulta completa con todos los datos necesarios
+
     $sql = "SELECT 
                 c.id_cita,
                 c.fecha,
@@ -74,4 +74,5 @@ try {
 }
 
 ob_end_flush();
+
 ?>
